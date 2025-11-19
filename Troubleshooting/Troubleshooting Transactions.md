@@ -1,16 +1,19 @@
-# Table of Contents
+# Troubleshooting Transactions
+
+## Table of Contents
 
 
-* [Unable to modify engineered job](#modify-engineered-job) "Update not allowed, Engineered and Prevent Changes."
+* [Unable to modify engineered job](#modify-engineered-job) throws error: "Update not allowed, Engineered and Prevent Changes."
 
 ---
 
 
-## Modify Engineered Job
+### Modify Engineered Job
 
 When trying to programatically modify a job using a BPM or Function, if the job has been engineered, you are not able to update it. Even if you set the `JobHead.JobEngineered` to `false` and try to call `JobEntrySvc.Update()`, the change will not be saved. The helper function `JobEntrySvc.ChangeJobHeadJobEngineered()` does not unengineer the job either.
 
-Calling `JobEntrySvc.Update()` on an engineered job will return the error **"Update not allowed, Engineered and Prevent Changes."**
+Calling `JobEntrySvc.Update()` on an engineered job will return the error **"Update not allowed, Engineered and Prevent Changes."**  
+**NOTE:** This error only happens if you have `Company Configuration => Production => Job => Change Engineered Jobs` set to "Prevent Changes."
 
 The only way I've found so far to update an engineered job is to use `JobEntrySvc.UpdateExt()` instead of `JobEntrySvc.Update()`.
 
