@@ -19,3 +19,45 @@ Walks through how to configure the `rest-kinetic` object in an event workflow to
 
 * [Tips and Tricks](./Tips%20and%20Tricks.md)  
 : Holding area for Kinetic examples that are not fully fleshed out or categorized
+
+## Syntax Samples
+
+This section includes simple examples of the basic syntax used to interact with the system. These examples may contain C#, JavaScript, or any other languages, so their applications will vary based on what type of customization you are implementing.
+
+**To create an instance of any Business Object in C# in order to access that object's methods:**
+
+```csharp
+using (var svc = Ice.Assemblies.ServiceRenderer.GetService<Erp.Contracts.TipSvcContract>(Db))
+{
+    svc.GetByID(); // Add appropriate parameters
+    //some other code here
+    svc.GetList(); // Add appropriate parameters
+    //some other code here
+    svc.Update(); //Add appropriate parameters
+}
+```
+
+**If you need to create an Erp context in C# (If `Db` is unavailable):**
+
+```csharp
+Erp.ErpContext DbErp = CallContext.Current.GetMainContext<Erp.ErpContext>();
+if ((from Part_Row in DbErp.Part
+where string.Compare(Part_Row.Company, ttUD10_xRow.Company, true) == 0
+select Part_Row).Any())
+{
+    // Custom code here
+}
+```
+
+**Write a message to server log in C#:**
+
+```csharp
+Ice.Diagnostics.Log.WriteEntry("TEST1" + " " + "test2");
+```
+
+**Reading a UD field value in C# in a Method Directive:**
+
+```csharp
+var x = ds.ABCCode.UDField<System.String>("MyNewColumn _c");
+```
+
