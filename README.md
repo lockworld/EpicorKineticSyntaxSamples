@@ -27,14 +27,13 @@ This section includes simple examples of the basic syntax used to interact with 
 **To create an instance of any Business Object in C# in order to access that object's methods:**
 
 ```csharp
-using (var svc = Ice.Assemblies.ServiceRenderer.GetService<Erp.Contracts.TipSvcContract>(Db))
-{
-    svc.GetByID(); // Add appropriate parameters
+CallService<Ice.Contracts.UD12SvcContract>(UD12Svc => {
+    UD12Svc.GetByID(); // Add appropriate parameters
     //some other code here
-    svc.GetList(); // Add appropriate parameters
+    UD12Svc.GetList(); // Add appropriate parameters
     //some other code here
-    svc.Update(); //Add appropriate parameters
-}
+    UD12Svc.Update(); //Add appropriate parameters
+});
 ```
 
 **If you need to create an Erp context in C# (If `Db` is unavailable):**
