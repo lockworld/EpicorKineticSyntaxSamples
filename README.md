@@ -1,7 +1,7 @@
 # EpicorKineticSyntaxSamples
 This Kinetic "Spell Book" contains syntax samples for various Epicor Kinetic customizations. Most Kinetic elements, events, tools, etc. will only work correctly if they are configured in exactly the right way, but there is no way for the average developer to tell what the "right way" is. So we are left to use trial and error to figure it out.
 
-That's why I refer to this repository as my Kinetic "Spell Book" - without the proper incantations, the Kinetic VooDoo simply won't work or will produce the wrong results. This repository offers guidance on how to put the pieces together into the proper spell to get the result you want every time.
+That's why I refer to this repository as my Kinetic "Spell Book" - without the proper ingredients and incantations, the Kinetic VooDoo simply won't work or will produce the wrong results. This "Spell Book" provides instructions on how to put the pieces together in just the right way to create a spell that gets the result you want every time.
 
 ## Controls
 
@@ -16,6 +16,9 @@ When issuing material from an Epicor Function by calling `IssueReturnSvc.Perform
 
 * [rest-kinetic](./Events/rest-kinetic.md)  
 Walks through how to configure the `rest-kinetic` object in an event workflow to correctly pass the values from a local DataSet to the correct parameters when invoking a Kinetic business object method using a REST call.
+
+* [grid-onclick](./Events/grid-onclick.md)  
+Out of the box, the `Grid`=>`OnClick` trigger will _never_ run. This page provides the secret recipe for getting the OnClick hook to work on your Panel Grid elements.
 
 ## Other resources
 
