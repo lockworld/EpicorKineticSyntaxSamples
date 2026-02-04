@@ -2,6 +2,7 @@
 
 This page contains references that are actively being revised and refined and will find a place in other documents when they are ready.
 
+
 **Enable navigation back to main `App` page**  
 : A custom Kinetic app will have this basic structure when it is created:
 
